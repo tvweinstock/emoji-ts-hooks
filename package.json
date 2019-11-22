@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "tailwindcss": "^1.1.3",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "@types/algoliasearch": "^3.34.5",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "algoliasearch": "^3.35.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "name": "emoji-ts-hooks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
