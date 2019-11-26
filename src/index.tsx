@@ -1,51 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
-import algoliasearch from 'algoliasearch/lite';
 
-const searchClient = algoliasearch(
-  'J689A3Q3TB',
-  '3b07b5c35ff7d6be9d6c9f4242f938d0'
-);
-const index = searchClient.initIndex('emojipedia');
+import { AlgoliaContainer } from './AlgoliaContainer';
+import App from './App';
 
-const App = () => {
-  const [value, setValue] = useState('foo');
-
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setValue('toto');
-  //   }, 2000);
-
-  //   return () => clearTimeout(timeoutId);
-  // }, [value]);
-
-  const handleSearch = evt => {
-    setValue(evt.target.value);
-    index.search(
-      {
-        query: evt.target.value,
-      },
-      (err, { hits } = {}) => {
-        if (err) throw err;
-
-        console.log(hits);
-      }
-    );
-  };
+const Root = () => {
+  if (!process.env.ALGOLIA_APP_ID || !process.env.ALGOLIA_SEARCH_API_KEY) {
+    return null;
+  }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={value}
-        // onChange={handleSearch}
-        onChange={evt => setValue(evt.target.value)}
-      />
-    </div>
+    <AlgoliaContainer
+      appID={process.env.ALGOLIA_APP_ID}
+      apiKey={process.env.ALGOLIA_SEARCH_API_KEY}
+    >
+      <App />
+    </AlgoliaContainer>
   );
 };
 
-// uncontrolled => defaultValue
-// controlled => value
-
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<Root />, document.getElementById('app'));
