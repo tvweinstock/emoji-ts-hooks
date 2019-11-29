@@ -9,7 +9,7 @@ See https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook~~
 ~~- Create a useAlgoliaClient custom hook. It uses the AlgoliaContext we created, and returns the searchClient
 (see https://reactjs.org/docs/hooks-reference.html#usecontext)~~
 
-- Create a useIndex custom hook (this will need useAlgoliaClient, hooks within hooks)
+- Create a useAlgoliaIndex custom hook (this will need useAlgoliaClient, hooks within hooks)
 
 - It takes an indexName as a parameter
 - It returns an algoliaClient.initIndex()

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import useAlgoliaClient from './useAlgoliaClient';
+// import useAlgoliaClient from './useAlgoliaClient';
+import useAlgoliaIndex from './useAlgoliaIndex';
 
 const App = ({}) => {
   const [value, setValue] = useState('foo');
-  const AlgoliaClient = useAlgoliaClient();
-  console.log(AlgoliaClient);
+  const AlgoliaIndex = useAlgoliaIndex();
+  console.log(AlgoliaIndex);
 
   // useEffect(() => {
   //   const timeoutId = setTimeout(() => {
