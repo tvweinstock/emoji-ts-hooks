@@ -9,16 +9,15 @@ const useAlgoliaQuery = (indexName: string, query: string) => {
   const [results, setResults] = useState(<any>[]);
 
   useEffect(() => {
-    AlgoliaIndex.search(
-      {
-        query,
-        hitsPerPage: 50,
-      },
-      (err, { hits } = {}) => {
-        if (err) throw err;
+    AlgoliaIndex.search({ query })
+      .then(({ hits } = {}) => {
+        console.log(hits);
         setResults(hits);
-      }
-    );
+      })
+      .catch(err => {
+        console.log(err);
+        console.log(err.debugData);
+      });
   }, [indexName, query]); // Only re-run if query or indexname changes
 
   return results;
