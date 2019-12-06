@@ -1,42 +1,23 @@
 import React, { useState } from 'react';
-// import useAlgoliaClient from './useAlgoliaClient';
-import useAlgoliaIndex from './useAlgoliaIndex';
+import useAlgoliaQuery from './useAlgoliaQuery';
 
 const App = ({}) => {
-  const [value, setValue] = useState('foo');
-  const AlgoliaIndex = useAlgoliaIndex();
-  console.log(AlgoliaIndex);
+  const [query, setQuery] = useState('smile');
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setValue('toto');
-  //   }, 2000);
-
-  //   return () => clearTimeout(timeoutId);
-  // }, [value]);
-
-  const handleSearch = evt => {
-    setValue(evt.target.value);
-    // index.search(
-    //   {
-    //     query: evt.target.value,
-    //   },
-    //   (err, { hits } = {}) => {
-    //     if (err) throw err;
-
-    //     console.log(hits);
-    //   }
-    // );
-  };
+  const hits = useAlgoliaQuery(process.env.ALGOLIA_INDEX_NAME!, query);
 
   return (
     <div>
       <input
         type="text"
-        value={value}
-        // onChange={handleSearch}
-        onChange={evt => setValue(evt.target.value)}
+        value={query}
+        onChange={evt => setQuery(evt.target.value)}
       />
+      <ul>
+        {hits.map(hit => (
+          <li key={hit.url}>{hit.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };

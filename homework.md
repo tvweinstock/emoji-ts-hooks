@@ -17,11 +17,14 @@ See https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook~~
 - use useMemo so that the same instance of the algolia index is returned unless the index Name changes~~
 
 * Create a useQuery custom hook
+
   - It takes an indexName and a query string
   - It stores a list of hits (any[]) with useState. It’s initialised with an empty array
   - Everytime the query or the algoliaIndex changes, it triggers a search. The hits from that search are stored in the state (use useEffect! https://reactjs.org/docs/hooks-reference.html#useeffect)
   - It returns a list of hits
+
 * Wrap your app with the AlgoliaContainer so that the algoliaClient is available everywhere in your app
+
 * Create a SearchPage component
   _ It contains an input and a list of hits
   _ It stores the current query value with useState
