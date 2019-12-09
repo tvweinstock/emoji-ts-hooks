@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import { AlgoliaContainer } from './AlgoliaContainer';
-import App from './App';
+import { AlgoliaContainer } from './algolia/AlgoliaContainer';
+import App from '../src/Components/App';
 
 const Root = () => {
   if (!process.env.ALGOLIA_APP_ID || !process.env.ALGOLIA_SEARCH_API_KEY) {

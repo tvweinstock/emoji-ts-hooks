@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useAlgoliaQuery from './useAlgoliaQuery';
+import useAlgoliaQuery from '../algolia/useAlgoliaQuery';
 
 const App = ({}) => {
   const [query, setQuery] = useState('smile');

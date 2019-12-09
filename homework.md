@@ -1,3 +1,18 @@
+### Styling
+
+- Install tailwind
+- Use classnames to style
+- add purge/treeshaking module
+
+### React/Hooks
+
+- Look for interesting hooks to add
+- Componentise the emoji hit
+
+### JS
+
+- Make function promise cancelable
+
 ~~- Update AlgoliaContainer so it can take two new props, the application id and the search api key
 \_ I want those props to be typed!
 See https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#function-components~~
@@ -11,23 +26,25 @@ See https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook~~
 
 ~~- Create a useAlgoliaIndex custom hook (this will need useAlgoliaClient, hooks within hooks)~~
 
-~~- It takes an indexName as a parameter
+~~- It takes an indexName as a parameter~~
 
-- It returns an algoliaClient.initIndex()
-- use useMemo so that the same instance of the algolia index is returned unless the index Name changes~~
+~~- It returns an algoliaClient.initIndex()~~
 
-* Create a useQuery custom hook
+~~- use useMemo so that the same instance of the algolia index is returned unless the index Name changes~~
 
-  - It takes an indexName and a query string
-  - It stores a list of hits (any[]) with useState. It’s initialised with an empty array
-  - Everytime the query or the algoliaIndex changes, it triggers a search. The hits from that search are stored in the state (use useEffect! https://reactjs.org/docs/hooks-reference.html#useeffect)
-  - It returns a list of hits
+~~- Create a useQuery custom hook~~
 
-* Wrap your app with the AlgoliaContainer so that the algoliaClient is available everywhere in your app
+~~- It takes an indexName and a query string~~
 
-* Create a SearchPage component
-  _ It contains an input and a list of hits
-  _ It stores the current query value with useState
-  _ It uses the const hits = useQuery(indexName, query) hook created earlier
-  _ The input is controlled, its value is the query stored thank to useState, and it updates the state with the onChange hook (you already have that boilerplate setup
-  Expected result: https://emojis-search.netlify.com/ but ugly
+~~- It stores a list of hits (any[]) with useState. It’s initialised with an empty array~~
+~~- Everytime the query or the algoliaIndex changes, it triggers a search. The hits from that search are stored in the state (use useEffect! https://reactjs.org/docs/hooks-reference.html#useeffect)~~
+~~- It returns a list of hits~~
+
+~~\* Wrap your app with the AlgoliaContainer so that the algoliaClient is available everywhere in your app~~
+
+~~\* Create a SearchPage component
+_ It contains an input and a list of hits
+_ It stores the current query value with useState
+_ It uses the const hits = useQuery(indexName, query) hook created earlier
+_ The input is controlled, its value is the query stored thank to useState, and it updates the state with the onChange hook (you already have that boilerplate setup
+Expected result: https://emojis-search.netlify.com/ but ugly~~
