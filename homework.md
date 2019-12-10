@@ -11,7 +11,7 @@
 
 ### JS
 
-- Make function promise cancelable
+~- Make function promise cancelable~
 
 ~~- Update AlgoliaContainer so it can take two new props, the application id and the search api key
 \_ I want those props to be typed!

@@ -13,9 +13,12 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "algoliasearch": "^3.35.1",
+    "autoprefixer": "^9.7.3",
     "p-cancelable": "^2.0.0",
+    "postcss": "^7.0.24",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "tailwind": "^4.0.0"
   },
   "name": "emoji-ts-hooks",
   "version": "1.0.0",
