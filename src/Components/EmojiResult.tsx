@@ -7,11 +7,19 @@ interface EmojiResultProps {
 }
 
 const EmojiResult = ({ emoji, vendor = 'Apple' }: EmojiResultProps) => {
+  const previewImg = emoji.vendors.find(v => v.name === vendor) || {
+    imageUrl: '',
+    name: 'placeholder',
+  };
   return (
-    <div>
-      <img src="" alt="" />
+    <React.Fragment>
+      <img
+        className="h-8 shadow-lg rounded-full"
+        src={previewImg.imageUrl}
+        alt={emoji.name}
+      />
       <p>{emoji.name}</p>
-    </div>
+    </React.Fragment>
   );
 };
 
