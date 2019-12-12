@@ -11,5 +11,5 @@ export interface Emoji {
   category: string;
   categoryUrl: string;
   description: string;
-  vendors: EmojiVendor;
+  vendors: EmojiVendor[];
 }

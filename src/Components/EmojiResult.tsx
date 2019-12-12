@@ -7,8 +7,6 @@ interface EmojiResultProps {
 }
 
 const EmojiResult = ({ emoji, vendor = 'Apple' }: EmojiResultProps) => {
-  console.log(emoji.vendors.find(v => console.log(v.name)));
-
   const previewImg =
     emoji.vendors.find(v => v.name === vendor) || emoji.vendors[0];
   return (

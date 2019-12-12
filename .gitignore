@@ -9,3 +9,4 @@ dist
 .env
 .cache
 yarn-error.log
+.vscode
