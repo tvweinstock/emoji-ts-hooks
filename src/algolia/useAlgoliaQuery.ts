@@ -8,7 +8,9 @@ const useAlgoliaQuery = (indexName: string, query: string) => {
   const [results, setResults] = useState<any[]>([]);
 
   useEffect(() => {
-    const searchPromise = makeCancelable(AlgoliaIndex.search(query));
+    const searchPromise = makeCancelable(
+      AlgoliaIndex.search({ query, hitsPerPage: 100 })
+    );
     searchPromise.then(result => setResults(result.hits));
   }, [indexName, query]); // Only re-run if query or indexname changes
 
