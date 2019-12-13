@@ -15,13 +15,14 @@ const App = ({}) => {
 
   return (
     <React.Fragment>
-      <header className="mb-5">
+      <header className="mb-5 w-9/12">
         <h1 className="text-3xl mb-3">Baby how you feelin?</h1>
         <input
           type="text"
           value={query}
           onChange={evt => setQuery(evt.target.value)}
-          className="border-solid border-gray-500 border rounded-lg px-2 py-1"
+          placeholder="An emoji is worth a thousands words..."
+          className="border-solid border-gray-500 border rounded-lg px-2 py-1 w-full hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:shadow-outline focus:border-gray-300"
         />
       </header>
       <div className="sidebar">
@@ -29,16 +30,15 @@ const App = ({}) => {
         <ul>
           {vendors.map(vendor => (
             <li key={vendor}>
-              <label>
-                {vendor}
-                <input
-                  type="radio"
-                  value={vendor}
-                  name="vendor"
-                  checked={vendor === selectedVendor}
-                  onChange={evt => setSelectedVendor(evt.target.value)}
-                />
-              </label>
+              <input
+                type="radio"
+                value={vendor}
+                id={vendor}
+                name="vendor"
+                checked={vendor === selectedVendor}
+                onChange={evt => setSelectedVendor(evt.target.value)}
+              />
+              <label for={vendor}>{vendor}</label>
             </li>
           ))}
         </ul>

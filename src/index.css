@@ -18,3 +18,25 @@ header {
   grid-auto-flow: dense;
   gap: 1rem;
 }
+input {
+  transition: 0.2s ease all;
+}
+input[type='radio'] {
+  opacity: 0;
+  margin-left: -14px;
+}
+input[type='radio'] + label {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+input[type='radio'] + label:after {
+  content: '';
+  border-bottom: 3px solid transparent;
+  display: block;
+}
+
+input[type='radio']:checked + label:after {
+  border-color: #4ecdc4;
+}
