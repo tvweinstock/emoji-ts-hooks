@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useAlgoliaQuery from '../algolia/useAlgoliaQuery';
 import EmojiResult from './EmojiResult';
 import { Emoji } from '../../types';
+import { useSearchParam } from 'react-use';
 
 const App = ({}) => {
-  const [query, setQuery] = useState('');
+  const queryParam = useSearchParam('query');
+  const [query, setQuery] = useState(queryParam || '');
   const [selectedVendor, setSelectedVendor] = useState('Apple');
 
   const hits: Emoji[] = useAlgoliaQuery(process.env.ALGOLIA_INDEX_NAME!, query);
@@ -12,6 +14,14 @@ const App = ({}) => {
   const vendors = Array.from(
     new Set(hits.flatMap(hit => hit.vendors).map(vendor => vendor.name))
   );
+
+  useEffect(() => {
+    history.pushState(
+      {},
+      '',
+      location.pathname + `?query=${encodeURIComponent(query)}`
+    );
+  }, [query]);
 
   return (
     <React.Fragment>
@@ -44,13 +54,17 @@ const App = ({}) => {
         </ul>
       </div>
       <div className="search">
-        <ul>
-          {hits.map(emoji => (
-            <li key={emoji.url}>
-              <EmojiResult emoji={emoji} vendor={selectedVendor} />
-            </li>
-          ))}
-        </ul>
+        {hits.length > 0 ? (
+          <ul>
+            {hits.map(emoji => (
+              <li key={emoji.url}>
+                <EmojiResult emoji={emoji} vendor={selectedVendor} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div>empty state</div>
+        )}
       </div>
     </React.Fragment>
   );

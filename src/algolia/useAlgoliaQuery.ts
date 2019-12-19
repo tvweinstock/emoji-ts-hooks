@@ -12,6 +12,10 @@ const useAlgoliaQuery = (indexName: string, query: string) => {
       AlgoliaIndex.search({ query, hitsPerPage: 100 })
     );
     searchPromise.then(result => setResults(result.hits));
+
+    return () => {
+      searchPromise.cancel();
+    };
   }, [indexName, query]); // Only re-run if query or indexname changes
 
   return results;

@@ -19,6 +19,7 @@
     "postcss": "^7.0.24",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-use": "^13.12.2",
     "tailwind": "^4.0.0"
   },
   "name": "emoji-ts-hooks",
