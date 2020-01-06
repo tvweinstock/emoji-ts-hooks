@@ -6,7 +6,8 @@
     "typescript": "^3.6.4"
   },
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "dependencies": {
     "@types/algoliasearch": "^3.34.5",
