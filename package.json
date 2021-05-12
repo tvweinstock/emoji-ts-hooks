@@ -17,7 +17,7 @@
     "algoliasearch": "^3.35.1",
     "autoprefixer": "^9.7.3",
     "p-cancelable": "^2.0.0",
-    "postcss": "^7.0.24",
+    "postcss": "^8.2.10",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-use": "^13.12.2",
